@@ -4,8 +4,11 @@ import requests
 from bs4 import BeautifulSoup
 from openai import OpenAI
 
-# Initialize AI Client
-ai_client = OpenAI(api_key=os.environ.get("AI_API_KEY"))
+# Initialize AI Client pointing to GitHub's free model endpoint
+ai_client = OpenAI(
+    base_url="https://models.inference.ai.azure.com",
+    api_key=os.environ.get("AI_API_KEY")
+)
 
 TARGET_URL = "https://www.ign.com/upcoming/games"
 SANDBOX_DB = "sandbox_calendar.json"
