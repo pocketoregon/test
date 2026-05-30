@@ -23,43 +23,43 @@ def scrape_raw_listings():
         
     soup = BeautifulSoup(response.text, 'html.parser')
     
-    # We scrape the text content of the upcoming game listings dynamically
-    listings = []
-    # Target common text containers inside IGN's grid layouts
-    for card in soup.find_all(['div', 'a'], class_=lambda c: c and 'card' in c.lower()):
-        text = card.get_text(separator=" ").strip()
-        if text:
-            listings.append(text)
+    # Highly specific text cleaner to keep token count minimal
+    clean_lines = []
+    for item in soup.find_all(['h3', 'div', 'span', 'p']):
+        text = item.get_text().strip()
+        # Only extract lines that contain valid game names or 2026 calendar months
+        if text and any(m in text for m in ['2026', 'May', 'June', 'July', 'Release']):
+            if len(text) < 100 and text not in clean_lines:
+                clean_lines.append(text)
             
-    # Fallback: if class names are heavily masked, grab the readable text lines directly
-    if not listings:
-        listings = [line.strip() for line in soup.get_text().split('\n') if any(m in line for m in ['2026', 'May', 'June'])]
+    # Fallback to broad filtering if specific elements aren't caught
+    if not clean_lines:
+        clean_lines = [line.strip() for line in soup.get_text().split('\n') if any(m in line for m in ['2026', 'May', 'June'])]
 
-    raw_text_dump = "\n".join(listings[:100]) # Keep payload clean for the LLM
-    return raw_text_dump
+    # Keep a strict limit on content size to protect the 8,000 token limit
+    final_payload = "\n".join(clean_lines[:40])
+    print(f"📉 Optimized payload size down to {len(final_payload)} characters.")
+    return final_payload
 
 def parse_with_ai_agent(raw_data):
     print("🤖 AI Agent is extracting dates and titles via GitHub Models...")
     
     prompt = f"""
-    Analyze this raw scraped gaming data. Extract explicit game releases or events that have a clear date.
+    Extract game releases with explicit dates from the following text fragment.
     
-    Format your response strictly as a JSON object matching this structure:
+    Format your response strictly as a single JSON object matching this structure:
     {{
-      "YYYY-MM-DD": {{
+      "2026-05-28": {{
         "gaming": [
-          {{ "title": "Exact Game Title", "source": "IGN" }}
+          {{ "title": "Pictonico!", "source": "IGN" }}
         ]
       }}
     }}
     
-    If multiple events fall on the same day, group them under that single date string.
-    
-    Raw Scraped Text:
+    Raw text to process:
     {raw_data}
     """
     
-    # Using 'gpt-4o' full identifier on GitHub Models endpoint
     response = ai_client.chat.completions.create(
       model="gpt-4o",
       messages=[{"role": "user", "content": prompt}],
@@ -70,21 +70,25 @@ def parse_with_ai_agent(raw_data):
 
 def main():
     try:
-        # 1. Scrape
+        # 1. Scrape clean rows
         raw_text = scrape_raw_listings()
         
+        if not raw_text.strip():
+            raise Exception("No readable text structure extracted from targeted elements.")
+            
         # 2. Process through AI Agent
         extracted_events = parse_with_ai_agent(raw_text)
         
-        # 3. Save to an isolated sandbox database file
+        # 3. Save to database file
         with open(SANDBOX_DB, "w") as f:
             json.dump(extracted_events, f, indent=2)
             
-        print(f"✅ Success! Isolated data written to {SANDBOX_DB}")
-        print(json.dumps(extracted_events, indent=2))
+        print(f"✅ Success! Data written to {SANDBOX_DB}")
         
     except Exception as e:
         print(f"❌ Scraper Sandbox Error: {e}")
+        # Explicitly fail the workflow step so GitHub doesn't show a false green checkmark
+        exit(1) 
 
 if __name__ == "__main__":
     main()
