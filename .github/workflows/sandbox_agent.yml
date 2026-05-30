@@ -22,13 +22,14 @@ jobs:
 
       - name: Run AI Scraping Agent
         env:
-          AI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.AI_API_KEY }}  # This line maps your secret to what the OpenAI SDK expects by default
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
         run: python calendar_scraper.py
 
       - name: Save Extracted Data to Repo
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add sandbox_calendar.json
+          git add sandbox_calendar.json || true
           git commit -m "🤖 Sandbox Agent: Extracted latest game drops" || exit 0
           git push
