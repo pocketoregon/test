@@ -39,7 +39,7 @@ def scrape_raw_listings():
     return raw_text_dump
 
 def parse_with_ai_agent(raw_data):
-    print("🤖 AI Agent is extracting dates and titles...")
+    print("🤖 AI Agent is extracting dates and titles via GitHub Models...")
     
     prompt = f"""
     Analyze this raw scraped gaming data. Extract explicit game releases or events that have a clear date.
@@ -59,6 +59,7 @@ def parse_with_ai_agent(raw_data):
     {raw_data}
     """
     
+    # Using 'gpt-4o' full identifier on GitHub Models endpoint
     response = ai_client.chat.completions.create(
       model="gpt-4o",
       messages=[{"role": "user", "content": prompt}],
