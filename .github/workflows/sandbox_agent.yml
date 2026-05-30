@@ -1,0 +1,34 @@
+name: Sandbox Calendar Scraper Agent
+
+on:
+  schedule:
+    - cron: '0 3 * * *' # Runs automatically once a day
+  workflow_dispatch: # Gives you a manual "Play" button in GitHub to test it instantly
+
+jobs:
+  scrape_and_parse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: pip install requests beautifulsoup4 openai
+
+      - name: Run AI Scraping Agent
+        env:
+          AI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python calendar_scraper.py
+
+      - name: Save Extracted Data to Repo
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add sandbox_calendar.json
+          git commit -m "🤖 Sandbox Agent: Extracted latest game drops" || exit 0
+          git push
