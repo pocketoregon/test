@@ -3,11 +3,11 @@
     "gaming": [
       {
         "title": "Arcane Merchant",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "Tattoo Removal Simulator",
-        "source": "Unknown"
+        "source": "IGN"
       }
     ]
   },
@@ -15,27 +15,31 @@
     "gaming": [
       {
         "title": "Among the Sleep",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "Fatekeeper",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "Game of Thrones: Dragonfire",
-        "source": "Unknown"
+        "source": "IGN"
+      },
+      {
+        "title": "Hobby Horse",
+        "source": "IGN"
       },
       {
         "title": "OddFauna : Secret of the Terrabeast",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "Remorses",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "Unlucky Mummy",
-        "source": "Unknown"
+        "source": "IGN"
       }
     ]
   },
@@ -43,15 +47,15 @@
     "gaming": [
       {
         "title": "Blood West: Scavengers",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "Final Fantasy VII Rebirth",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "Gombo",
-        "source": "Unknown"
+        "source": "IGN"
       }
     ]
   },
@@ -59,43 +63,43 @@
     "gaming": [
       {
         "title": "CALX",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "Donkey Kong 64",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "House Flipper Remastered Collection",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "Mini Football Legends",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "Police Simulator: Patrol Officers",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "Pro Cycling Manager 26",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "River City Saga: Journey to the West",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "Swan Song",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "The 7th Guest Remake",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "Tour de France 2026",
-        "source": "Unknown"
+        "source": "IGN"
       }
     ]
   },
@@ -103,15 +107,15 @@
     "gaming": [
       {
         "title": "Gothic Remake",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "Hollowbody",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "Masters of the Universe: Legends Unite",
-        "source": "Unknown"
+        "source": "IGN"
       }
     ]
   },
@@ -119,15 +123,15 @@
     "gaming": [
       {
         "title": "Atre: Dominance Wars",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "Solarpunk",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "Trials Survivors",
-        "source": "Unknown"
+        "source": "IGN"
       }
     ]
   },
@@ -135,19 +139,11 @@
     "gaming": [
       {
         "title": "NBA THE RUN",
-        "source": "Unknown"
+        "source": "IGN"
       },
       {
         "title": "Voidling Bound",
-        "source": "Unknown"
-      }
-    ]
-  },
-  "2026-06-10": {
-    "gaming": [
-      {
-        "title": "Into The Depths",
-        "source": "Unknown"
+        "source": "IGN"
       }
     ]
   }
