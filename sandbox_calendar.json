@@ -70,7 +70,15 @@
         "source": "IGN"
       },
       {
+        "title": "Comatose",
+        "source": "IGN"
+      },
+      {
         "title": "Donkey Kong 64",
+        "source": "IGN"
+      },
+      {
+        "title": "Eterspire",
         "source": "IGN"
       },
       {
@@ -114,6 +122,10 @@
   "2026-06-05": {
     "gaming": [
       {
+        "title": "Follow Us",
+        "source": "IGN"
+      },
+      {
         "title": "Gothic Remake",
         "source": "IGN"
       },
@@ -135,18 +147,6 @@
       },
       {
         "title": "Solarpunk",
-        "source": "IGN"
-      },
-      {
-        "title": "Trials Survivors",
-        "source": "IGN"
-      }
-    ]
-  },
-  "2026-06-09": {
-    "gaming": [
-      {
-        "title": "NBA THE RUN",
         "source": "IGN"
       }
     ]
