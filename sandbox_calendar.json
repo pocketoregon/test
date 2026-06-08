@@ -70,6 +70,10 @@
         "source": "IGN"
       },
       {
+        "title": "Cameltry",
+        "source": "IGN"
+      },
+      {
         "title": "Comatose",
         "source": "IGN"
       },
@@ -139,14 +143,10 @@
       }
     ]
   },
-  "2026-06-08": {
+  "2026-06-06": {
     "gaming": [
       {
-        "title": "Atre: Dominance Wars",
-        "source": "IGN"
-      },
-      {
-        "title": "Solarpunk",
+        "title": "Trading Card Inspector",
         "source": "IGN"
       }
     ]
