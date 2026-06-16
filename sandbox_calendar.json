@@ -102,10 +102,6 @@
         "source": "IGN"
       },
       {
-        "title": "Pro Cycling Manager 26",
-        "source": "IGN"
-      },
-      {
         "title": "Rival Stars Horse Racing",
         "source": "IGN"
       },
@@ -147,6 +143,14 @@
       },
       {
         "title": "Masters of the Universe: Legends Unite",
+        "source": "IGN"
+      }
+    ]
+  },
+  "2026-06-06": {
+    "gaming": [
+      {
+        "title": "Trading Card Inspector",
         "source": "IGN"
       }
     ]
